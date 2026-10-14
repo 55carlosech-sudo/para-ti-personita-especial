@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Mis Ojitos Hermosos ❤️</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background: linear-gradient(135deg,#ff758c,#ff7eb3);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    font-family:Arial, Helvetica, sans-serif;
+    color:white;
+    text-align:center;
+    overflow:hidden;
+}
+
+.card{
+    background:rgba(255,255,255,0.15);
+    padding:30px;
+    border-radius:20px;
+    backdrop-filter: blur(10px);
+    width:90%;
+    max-width:450px;
+    z-index:10;
+}
+
+h1{
+    margin-bottom:15px;
+}
+
+p{
+    margin-bottom:20px;
+}
+
+button{
+    border:none;
+    padding:12px 20px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:bold;
+    background:white;
+    color:#ff4f81;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+#mensaje,
+#carta{
+    display:none;
+    margin-top:20px;
+    animation:aparecer 1s ease-in-out;
+}
+
+@keyframes aparecer{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.corazon{
+    position:absolute;
+    color:white;
+    font-size:20px;
+    animation:subir 8s linear infinite;
+    opacity:0.7;
+}
+
+@keyframes subir{
+    from{
+        transform:translateY(100vh);
+        opacity:0;
+    }
+    20%{
+        opacity:1;
+    }
+    to{
+        transform:translateY(-100px);
+        opacity:0;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <h1>Hola Ojitos Hermosos ❤️</h1>
+
+    <p>
+        Tengo algo especial para ti...
+    </p>
+
+    <button onclick="mostrar()">
+        Presiona aquí ✨
+    </button>
+
+    <div id="mensaje">
+        <br>
+        Eres la mejor parte de mis días. ❤️
+        <br><br>
+        Gracias por existir y acompañarme en mi día.
+        <br><br>
+
+        <button onclick="mostrarCarta()">
+            Abrir carta secreta 💌
+        </button>
+    </div>
+
+    <div id="carta">
+        <br>
+        Preciosa :
+        <br><br>
+
+        Quiero que sepas que cada día contigo es un regalo.
+        Gracias por tus risas, tu paciencia, tus platicas
+        y por haberme dejado haberte conocdio como persona.
+
+        <br><br>
+
+        Nunca olvides lo especial que eres para mí.
+        ❤️✨
+
+        <br><br>
+
+        Te quiero muchísimo❤️.
+    </div>
+
+</div>
+
+<script>
+
+function mostrar(){
+    document.getElementById("mensaje").style.display="block";
+}
+
+function mostrarCarta(){
+    document.getElementById("carta").style.display="block";
+}
+
+function crearCorazon(){
+
+    const corazon = document.createElement("div");
+
+    corazon.classList.add("corazon");
+    corazon.innerHTML="❤️";
+
+    corazon.style.left=Math.random()*100+"vw";
+    corazon.style.fontSize=(Math.random()*20+15)+"px";
+
+    document.body.appendChild(corazon);
+
+    setTimeout(()=>{
+        corazon.remove();
+    },8000);
+}
+
+setInterval(crearCorazon,500);
+
+</script>
+
+</body>
+</html>
